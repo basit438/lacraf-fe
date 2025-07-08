@@ -19,8 +19,8 @@ const LoginUser = () => {
           className="w-full max-w-md space-y-6"
         >
           <div>
-            <h2 className="text-2xl italic font-medium">Welcome Back</h2>
-            <p className="text-sm text-gray-600">
+            <h2 className="text-2xl italic font-medium pb-1">Welcome Back</h2>
+            <p className="text-sm text-gray-600 mb-4">
               Log in to access your account, track orders, and enjoy faster checkout.
             </p>
           </div>
