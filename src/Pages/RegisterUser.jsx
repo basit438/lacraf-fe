@@ -26,11 +26,13 @@ const RegisterUser = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="w-full max-w-md space-y-6"
         >
-          <div>
-            <h1 className="text-2xl italic font-medium">
+          <div
+          
+          >
+            <h1 className="text-2xl italic font-quirk font-semibold italic">
               Discover <span className="italic">Authentic</span><br />Handcrafted Treasures
             </h1>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 font-mozaic pt-2">
               Create your account to explore premium artisanal products from skilled local creators.
             </p>
           </div>
@@ -118,11 +120,11 @@ const RegisterUser = () => {
             <div className="space-y-3">
               <button className="w-full border border-gray-300 py-2 rounded flex items-center justify-center gap-2">
                 <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google" className="h-5 w-5" />
-                <span className="text-sm">Continue with Google</span>
+                <span className="text-sm font-mozaic">Continue with Google</span>
               </button>
-              <button className="w-full border border-gray-300 py-2 rounded flex items-center justify-center gap-2">
+              <button className="w-full border border-gray-300 py-2 rounded flex items-center justify-center gap-2 font-mozaic">
                 <img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="Facebook" className="h-5 w-5" />
-                <span className="text-sm">Continue with Facebook</span>
+                <span className="text-sm font-mozaic">Continue with Facebook</span>
               </button>
             </div>
 
@@ -140,7 +142,7 @@ const RegisterUser = () => {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         className="hidden lg:block w-1/2 h-full overflow-hidden"
       >
-        <img src="/pashmina4.jpg" alt="Crafted fabric" className="h-full w-full object-cover" />
+        <img src="/pashmina1.png" alt="Crafted fabric" className="h-full w-full object-cover" />
       </motion.div>
     </motion.div>
   );

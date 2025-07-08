@@ -19,15 +19,15 @@ const LoginUser = () => {
           className="w-full max-w-md space-y-6"
         >
           <div>
-            <h2 className="text-2xl italic font-medium">Welcome Back</h2>
-            <p className="text-sm text-gray-600">
+            <h2 className="text-2xl italic font-medium pb-1 font-quirk">Welcome Back</h2>
+            <p className="text-sm text-gray-600 mb-4 font-mozaic">
               Log in to access your account, track orders, and enjoy faster checkout.
             </p>
           </div>
 
-          <form className="space-y-5 overflow-y-auto max-h-[65vh] pr-2">
+          <form className="space-y-5 mt-7 overflow-y-auto max-h-[65vh] pr-2">
             <div>
-              <label className="block text-sm mb-1">Email</label>
+             
               <input
                 type="email"
                 className="w-full border-b border-gray-400 focus:outline-none py-2 text-sm"
@@ -36,7 +36,7 @@ const LoginUser = () => {
             </div>
 
             <div>
-              <label className="block text-sm mb-1">Password</label>
+             
               <div className="relative">
                 <input
                   type="password"
@@ -47,11 +47,11 @@ const LoginUser = () => {
             </div>
 
             <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center gap-2">
+              <label className="flex items-center gap-2 text-xs">
                 <input type="checkbox" />
                 Remember me
               </label>
-              <a href="#" className="underline text-gray-500">Forgot Password?</a>
+            <Link to={'/forgot-password'} className="text-xs text-gray-600 hover:text-blue-600 underline">Forgot Password</Link>
             </div>
 
             <button
@@ -99,7 +99,7 @@ const LoginUser = () => {
         className="hidden lg:block w-1/2 h-full overflow-hidden"
       >
         <img
-          src="/pashmina4.jpg"
+          src="/pashmina1.png"
           alt="Fabric"
           className="h-full w-full object-cover"
         />
