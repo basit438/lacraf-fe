@@ -1,24 +1,23 @@
 import React, { useState } from "react";
-import { FaRegCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-export default function ShopDetailsPage() {
-  const [shopName, setShopName] = useState("");
-  const [contactNumber, setContactNumber] = useState("");
-  const [storeDescription, setStoreDesc] = useState("");
-  const [businessAddress, setBusinessAdd] = useState("");
+export default function FinancialDetailsPage() {
+  const [gstin, setGstin] = useState("");
+  const [bankName, setBankName] = useState("");
+  const [accountNumber, setAccountNumber] = useState("");
+  const [ifsc, setIfsc] = useState("");
 
-  const handleShopInfo = (e) => {
+  const handleFinancialInfo = (e) => {
     e.preventDefault();
-    if (shopName && contactNumber && storeDescription && businessAddress) {
+    if (gstin && bankName && accountNumber && ifsc) {
       console.log({
-        shopName,
-        contactNumber,
-        storeDescription,
-        businessAddress,
+        gstin,
+        bankName,
+        accountNumber,
+        ifsc,
       });
-      // Redirect or next step here
+      // Move to next step
     }
   };
 
@@ -41,10 +40,16 @@ export default function ShopDetailsPage() {
             <div key={index} className="flex-1 flex flex-col items-center relative">
               <div
                 className={`h-3.5 w-3.5 rounded-full border-2 ${
-                  index === 0 ? "bg-black border-black" : "bg-white border-black"
+                  index === 1 ? "bg-black border-black" : "bg-white border-black"
                 }`}
               />
-              <span className="mt-2 text-[13px] text-black font-normal">{label}</span>
+              <span
+                className={`mt-2 text-[13px] font-normal ${
+                  index === 1 ? "font-semibold underline" : "text-black"
+                }`}
+              >
+                {label}
+              </span>
               {index !== 2 && (
                 <div className="absolute top-1.5 right-0 w-full h-0.5 border-t border-dotted border-gray-400 z-0" />
               )}
@@ -52,23 +57,23 @@ export default function ShopDetailsPage() {
           ))}
         </motion.div>
 
-        {/* Welcome Section */}
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center space-y-2"
         >
-          <h1 className="text-[22px] font-serif italic font-normal">Welcome, Hasan</h1>
-          <p className="text-gray-600 text-[14px] leading-relaxed max-w-xl mx-auto">
-            Tell us about your craft business. We'll help you get set up as a seller on LaCraft.
-            Don’t worry – you can always update these details later in your shop settings.
+          <h1 className="text-[22px] font-serif italic">Payment Information</h1>
+          <p className="text-gray-600 text-[14px] max-w-xl mx-auto leading-relaxed">
+            Let us know how you'd like to receive payments for your sales. This information helps us
+            send your earnings securely. You can update these details later in your shop settings.
           </p>
         </motion.div>
 
         {/* Form */}
         <motion.form
-          onSubmit={handleShopInfo}
+          onSubmit={handleFinancialInfo}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
@@ -76,28 +81,28 @@ export default function ShopDetailsPage() {
         >
           {[
             {
-              label: "Shop’s Name",
-              value: shopName,
-              setValue: setShopName,
-              placeholder: "What would you like to call your shop?",
+              label: "GSTIN Number",
+              placeholder: "Enter your 15-digit GSTIN",
+              value: gstin,
+              setValue: setGstin,
             },
             {
-              label: "Contact Number",
-              value: contactNumber,
-              setValue: setContactNumber,
-              placeholder: "10-digit mobile number for shop enquiries",
+              label: "Bank Account holder",
+              placeholder: "Enter account holder's name",
+              value: bankName,
+              setValue: setBankName,
             },
             {
-              label: "Shop’s Address",
-              value: businessAddress,
-              setValue: setBusinessAdd,
-              placeholder: "Where do you create your products?",
+              label: "Bank Account Number",
+              placeholder: "Enter your bank account number",
+              value: accountNumber,
+              setValue: setAccountNumber,
             },
             {
-              label: "Shop’s Description",
-              value: storeDescription,
-              setValue: setStoreDesc,
-              placeholder: "Tell customers what you make and sell (50–200 characters)",
+              label: "IFSC Code",
+              placeholder: "Enter your bank's IFSC code",
+              value: ifsc,
+              setValue: setIfsc,
             },
           ].map((field, i) => (
             <motion.div
@@ -110,9 +115,9 @@ export default function ShopDetailsPage() {
               <label className="w-44 text-[15px] text-black font-medium">{field.label}</label>
               <input
                 type="text"
+                placeholder={field.placeholder}
                 value={field.value}
                 onChange={(e) => field.setValue(e.target.value)}
-                placeholder={field.placeholder}
                 required
                 className="flex-1 border-b border-gray-400 text-[14px] py-1.5 focus:outline-none"
               />
@@ -126,14 +131,15 @@ export default function ShopDetailsPage() {
             transition={{ delay: 1.2, duration: 0.4 }}
             className="text-center pt-2"
           >
-          <Link to= {"/financial-details"}>
-            <button
+            <Link to={"/verification-documents"}>
+              <button
               type="submit"
               className="bg-black text-white text-[14px] px-6 py-2 rounded-full hover:bg-gray-800 transition"
             >
               Next Step
             </button>
-          </Link>
+            </Link>
+          
           </motion.div>
         </motion.form>
       </div>

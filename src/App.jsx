@@ -9,6 +9,8 @@ import RegisterUser from './Pages/RegisterUser'
 import LoginUser from './Pages/LoginUser'
 import CraftIntro from './Pages/sellerFlow/CraftIntro'
 import ShopDetailsForm from './Pages/sellerFlow/Shopdetailsform'
+import FinancialDetailsPage from './Pages/sellerFlow/FinancialDetailsPage'
+import VerificationDocumentsPage from './Pages/sellerFlow/VerificationDocumentsPage'
 function App() {
 
   const router = createBrowserRouter([
@@ -35,6 +37,14 @@ function App() {
         {
           path : "/shop-details",
           element : <ShopDetailsForm/>
+        },
+        {
+          path : "/financial-details",
+          element : <FinancialDetailsPage/>
+        },
+        {
+          path : "/verification-documents",
+          element : <VerificationDocumentsPage/>
         }
       ]
     }
